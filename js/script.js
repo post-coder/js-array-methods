@@ -1,43 +1,31 @@
 
 // hai un array di numeri da 1 a 5
-// crea un nuovo array con i numeri iniziali elevati al quadrato
+// crea un nuovo array con i solo i numeri dispari
 
 const numbers = [1,2,3,4,5];
-// [1,4,9,16,25]
+// [1,3,5]
 
-
-
-
-// metodo map
-// fatto apposta per generare un array MODIFICATO rispetto ad uno di partenza
-// il metodo map prende un array
-// cicla tutti gli elementi
-// restituisce un nuovo array modificando l'elemento attuale come gli indichiamo noi
-
-// quindi dichiaro un nuovo array "newArray"
-// dico che il suo contenuto è = al risultato del .map()
-
-// inizializzo l'array come vuoto
+// array nuovo vuoto
 let newArray = [];
 
-// ci inserisco il risultato del .map()
-newArray = numbers.map(function(currentElement, index) {
-    // esegue queste azioni per ogni elemento
-    // console.log(currentElement)
 
-    // se io dentro il map() ho un return di un valore
-    // prenderò questo valore e lo pusherò in automatico dentro l'array nuovo
-    // return currentElement * currentElement;
-    return currentElement * currentElement
+// possiamo utilizzare il nuovo metodo .filter()
+// cicla tutti gli elementi dell'array di partenza
+// si aspetta di trovare da qualche parte per ogni elemento un "return true"
+// se si trova un return true, inserisce QUELL'ELEMENTO attuale nel nuovo array
 
-    // semmai la nostra funzione non avesse da qualche parte un return, ci inserirebbe un valore undefined
+newArray = numbers.filter((currentNumber) => {
+    
+    if(currentNumber % 2 != 0) {
+        return true;
+    }
+
+    // metodo più veloce:
+    // return currentNumber % 2 != 0
 
 })
 
-// in questo caso abbiamo un nuovo array con i valori restituiti
-// dal return dentro map
 console.log(newArray)
-
 // considerazioni:
-// .map() non potrà mai restituire un array con un numero di elementi maggiore o minore
-// avranno sempre lo stesso numero di elementi
+// l'array che ci restituirà il metodo .filter() non potrà mai essere con più elementi rispetto a quello di partenza
+// può avere lo stesso numero o inferiore. (di solito inferiore, visto che stiamo filtrando)
