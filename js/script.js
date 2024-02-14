@@ -37,9 +37,10 @@ const persone = [
 ];
 
 
-const nuovoArray = persone.map((currentPerson) => {
+// const nuovoArray = persone.map((currentPerson) => `Sono ${currentPerson.nome} ${currentPerson.cognome} e${currentPerson.eta < 18 ? ' non' : ''} posso guidare`)
 
-    if(currentPerson.eta >= 18) {
+const nuovoArray = persone.map(currentPerson => {
+    if(currentPerson.eta >= 18) {   
 
         return `Sono ${currentPerson.nome} ${currentPerson.cognome} e posso guidare`;
 
@@ -48,7 +49,6 @@ const nuovoArray = persone.map((currentPerson) => {
         return `Sono ${currentPerson.nome} ${currentPerson.cognome} e non posso guidare`;
 
     }
-
-})
+});
 
 console.log(nuovoArray);
