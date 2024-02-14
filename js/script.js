@@ -1,22 +1,59 @@
-// A partire da un array di stringhe, 
-// crea un secondo array formattando le stringhe del primo array 
-// in minuscolo e con l’iniziale maiuscola.
+/*
 
-const parole = ['pippo', 'PLUTO', 'Paperino', "ToPoLiNo"];
-// [‘Pippo’, ‘Pluto’, ‘Paperino’]
+Crea un array di oggetti che rappresentano degli animali.
+Ogni animale ha un nome, una famiglia e una classe.
+Es:
+[
+  { nome: ‘leone’, famiglia: ‘felidi’, classe: ‘mammiferi’ },
+  { nome: ‘cane’, famiglia: ‘canidi’, classe: ‘mammiferi’ },
+  { nome: ‘gallina’, famiglia: ‘fasianidi’, classe: ‘uccelli’ },
+]
+Crea un nuovo array con la lista dei mammiferi.
 
 
+*/
 
-const nuoveParole = parole.map(parolaCorrente => {
+const animali = [
+    { nome: 'leone', famiglia: 'felidi', classe: 'mammiferi' },
+    { nome: 'cane', famiglia: 'canidi', classe: 'mammiferi' },
+    { nome: 'gallina', famiglia: 'fasianidi', classe: 'uccelli' },
+    { nome: 'elefante', famiglia: 'elefanti', classe: 'mammiferi' },
+    { nome: 'tigre', famiglia: 'felidi', classe: 'mammiferi' },
+    { nome: 'cavallo', famiglia: 'equidi', classe: 'mammiferi' },
+    { nome: 'aquila', famiglia: 'accipitridi', classe: 'uccelli' },
+    { nome: 'orso', famiglia: 'ursidi', classe: 'mammiferi' },
+    { nome: 'lupo', famiglia: 'canidi', classe: 'mammiferi' },
+    { nome: 'pinguino', famiglia: 'spheniscidae', classe: 'uccelli' },
+    { nome: 'gatto', famiglia: 'felidi', classe: 'mammiferi' },
+    { nome: 'pecora', famiglia: 'bovidi', classe: 'mammiferi' },
+    { nome: 'anatra', famiglia: 'anatidi', classe: 'uccelli' },
+    { nome: 'rana', famiglia: 'ranidi', classe: 'anfibi' }
+];
+
+
+document.querySelector("button").addEventListener("click", () => {
+
+    const parolaDaFiltrare = document.querySelector("#filtro").value;
+
+    let animaliFiltrati = [];
+
+    animaliFiltrati = animali.filter((currentAnimal) => {
     
-    let newWord = "";
-
-    newWord += parolaCorrente[0].toUpperCase()
-    newWord += parolaCorrente.substring(1).toLowerCase()
+        return currentAnimal.classe == parolaDaFiltrare
     
-    // console.log(newWord)
+    });
+    
+    // console.log(animaliFiltrati)
 
-    return newWord;
+    const listaElement = document.querySelector("ul");
+    listaElement.innerHTML = "";
+
+    animaliFiltrati.forEach(element => {
+        const newElement = document.createElement("li");
+        newElement.innerText = element.nome;
+        listaElement.append(newElement)
+
+    })
+
 })
 
-console.log(nuoveParole);
