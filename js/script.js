@@ -1,46 +1,43 @@
-const businessCards = [
-    {
-        fullname: "Wayne Barnett",
-        position:"Founder & CEO",
-        image: "wayne-barnett-founder-ceo.jpg"
-    },
-    {
-        fullname: "Angela Caroll",
-        position:"Chief Editor",
-        image: "angela-caroll-chief-editor.jpg"
-    },
-    {
-        fullname: "Walter Gordon",
-        position:"Office Manager",
-        image: "walter-gordon-office-manager.jpg"
-    },
-    {
-        fullname: "Angela Lopez",
-        position:"Social Media Manager",
-        image: "angela-lopez-social-media-manager.jpg"
-    },
-    {
-        fullname: "Scott Estrada",
-        position:"Developer",
-        image: "scott-estrada-developer.jpg"
-    },
-    {
-        fullname: "Barbara Ramos",
-        position:"Graphic Designer",
-        image: "barbara-ramos-graphic-designer.jpg"
-    },
 
-];
+// hai un array di numeri da 1 a 5
+// crea un nuovo array con i numeri iniziali elevati al quadrato
+
+const numbers = [1,2,3,4,5];
+// [1,4,9,16,25]
 
 
-const listElement = document.querySelector("ul");
 
-businessCards.forEach(function (actualMember, index) {
-    
-    console.log(index, actualMember.fullname)
 
-    const newElement = document.createElement("li");
-    newElement.innerText = actualMember.fullname;
-    listElement.append(newElement)
-    
+// metodo map
+// fatto apposta per generare un array MODIFICATO rispetto ad uno di partenza
+// il metodo map prende un array
+// cicla tutti gli elementi
+// restituisce un nuovo array modificando l'elemento attuale come gli indichiamo noi
+
+// quindi dichiaro un nuovo array "newArray"
+// dico che il suo contenuto è = al risultato del .map()
+
+// inizializzo l'array come vuoto
+let newArray = [];
+
+// ci inserisco il risultato del .map()
+newArray = numbers.map(function(currentElement, index) {
+    // esegue queste azioni per ogni elemento
+    // console.log(currentElement)
+
+    // se io dentro il map() ho un return di un valore
+    // prenderò questo valore e lo pusherò in automatico dentro l'array nuovo
+    // return currentElement * currentElement;
+    return currentElement * currentElement
+
+    // semmai la nostra funzione non avesse da qualche parte un return, ci inserirebbe un valore undefined
+
 })
+
+// in questo caso abbiamo un nuovo array con i valori restituiti
+// dal return dentro map
+console.log(newArray)
+
+// considerazioni:
+// .map() non potrà mai restituire un array con un numero di elementi maggiore o minore
+// avranno sempre lo stesso numero di elementi
