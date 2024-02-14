@@ -1,33 +1,46 @@
+const businessCards = [
+    {
+        fullname: "Wayne Barnett",
+        position:"Founder & CEO",
+        image: "wayne-barnett-founder-ceo.jpg"
+    },
+    {
+        fullname: "Angela Caroll",
+        position:"Chief Editor",
+        image: "angela-caroll-chief-editor.jpg"
+    },
+    {
+        fullname: "Walter Gordon",
+        position:"Office Manager",
+        image: "walter-gordon-office-manager.jpg"
+    },
+    {
+        fullname: "Angela Lopez",
+        position:"Social Media Manager",
+        image: "angela-lopez-social-media-manager.jpg"
+    },
+    {
+        fullname: "Scott Estrada",
+        position:"Developer",
+        image: "scott-estrada-developer.jpg"
+    },
+    {
+        fullname: "Barbara Ramos",
+        position:"Graphic Designer",
+        image: "barbara-ramos-graphic-designer.jpg"
+    },
 
-const students = ['Paolo', 'Giulia', 'Marco'];
-
-// come ciclare un array in maniera ancora più veloce
-
-// for(let i = 0; i < students.length; i++) {
-//     console.log(students[i]);
-// }
+];
 
 
-// foreach cicla sempre e solo dal primo all'ultimo elemento del nostro array
-students.forEach( (currentElement) => {
-    console.log(currentElement)
+const listElement = document.querySelector("ul");
+
+businessCards.forEach(function (actualMember, index) {
+    
+    console.log(index, actualMember.fullname)
+
+    const newElement = document.createElement("li");
+    newElement.innerText = actualMember.fullname;
+    listElement.append(newElement)
+    
 })
-
-// se vogliamo possiamo creare delle funzioni anonime
-// (le funzioni anonime sono funzioni senza nome che sono fatte apposta
-// per essere utilizzate UNA SOLA VOLTA e poi messe via).
-// anzichè quindi 
-/*
-function (parametro1, parametro2) {
-    // azioni
-}
-
-*/
-// possiamo scrivere
-/*
-
-(parametro1, parametro2) => {
-    // azioni
-}
-
-*/
