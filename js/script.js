@@ -9,9 +9,25 @@ const students = ['Paolo', 'Giulia', 'Marco'];
 
 
 // foreach cicla sempre e solo dal primo all'ultimo elemento del nostro array
-students.forEach( function(currentElement, index) {
+students.forEach( (currentElement) => {
+    console.log(currentElement)
+})
 
-    console.log(currentElement, index)
+// se vogliamo possiamo creare delle funzioni anonime
+// (le funzioni anonime sono funzioni senza nome che sono fatte apposta
+// per essere utilizzate UNA SOLA VOLTA e poi messe via).
+// anzichè quindi 
+/*
+function (parametro1, parametro2) {
+    // azioni
+}
 
-} )
+*/
+// possiamo scrivere
+/*
 
+(parametro1, parametro2) => {
+    // azioni
+}
+
+*/
