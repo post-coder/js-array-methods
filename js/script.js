@@ -1,59 +1,54 @@
+
 /*
+Crea un array di oggetti che rappresentano delle persone.
+Ogni persona ha un nome, un cognome e un’età.
 
-Crea un array di oggetti che rappresentano degli animali.
-Ogni animale ha un nome, una famiglia e una classe.
-Es:
-[
-  { nome: ‘leone’, famiglia: ‘felidi’, classe: ‘mammiferi’ },
-  { nome: ‘cane’, famiglia: ‘canidi’, classe: ‘mammiferi’ },
-  { nome: ‘gallina’, famiglia: ‘fasianidi’, classe: ‘uccelli’ },
-]
-Crea un nuovo array con la lista dei mammiferi.
-
-
+Crea quindi un nuovo array inserendo, 
+per ogni persona, una frase con il nome e cognome 
+e l’indicazione se può guidare, in base all’età.
 */
 
-const animali = [
-    { nome: 'leone', famiglia: 'felidi', classe: 'mammiferi' },
-    { nome: 'cane', famiglia: 'canidi', classe: 'mammiferi' },
-    { nome: 'gallina', famiglia: 'fasianidi', classe: 'uccelli' },
-    { nome: 'elefante', famiglia: 'elefanti', classe: 'mammiferi' },
-    { nome: 'tigre', famiglia: 'felidi', classe: 'mammiferi' },
-    { nome: 'cavallo', famiglia: 'equidi', classe: 'mammiferi' },
-    { nome: 'aquila', famiglia: 'accipitridi', classe: 'uccelli' },
-    { nome: 'orso', famiglia: 'ursidi', classe: 'mammiferi' },
-    { nome: 'lupo', famiglia: 'canidi', classe: 'mammiferi' },
-    { nome: 'pinguino', famiglia: 'spheniscidae', classe: 'uccelli' },
-    { nome: 'gatto', famiglia: 'felidi', classe: 'mammiferi' },
-    { nome: 'pecora', famiglia: 'bovidi', classe: 'mammiferi' },
-    { nome: 'anatra', famiglia: 'anatidi', classe: 'uccelli' },
-    { nome: 'rana', famiglia: 'ranidi', classe: 'anfibi' }
+const persone = [
+    {
+      nome: "Mario",
+      cognome: "Rossi",
+      eta: 15,
+    },
+    {
+      nome: "Anna",
+      cognome: "Verdi",
+      eta: 30,
+    },
+    {
+      nome: "Luca",
+      cognome: "Bianchi",
+      eta: 40,
+    },
+    {
+      nome: "Sofia",
+      cognome: "Neri",
+      eta: 17,
+    },
+    {
+      nome: "Marco",
+      cognome: "Gialli",
+      eta: 55,
+    },
 ];
 
 
-document.querySelector("button").addEventListener("click", () => {
+const nuovoArray = persone.map((currentPerson) => {
 
-    const parolaDaFiltrare = document.querySelector("#filtro").value;
+    if(currentPerson.eta >= 18) {
 
-    let animaliFiltrati = [];
+        return `Sono ${currentPerson.nome} ${currentPerson.cognome} e posso guidare`;
 
-    animaliFiltrati = animali.filter((currentAnimal) => {
-    
-        return currentAnimal.classe == parolaDaFiltrare
-    
-    });
-    
-    // console.log(animaliFiltrati)
+    } else {
 
-    const listaElement = document.querySelector("ul");
-    listaElement.innerHTML = "";
+        return `Sono ${currentPerson.nome} ${currentPerson.cognome} e non posso guidare`;
 
-    animaliFiltrati.forEach(element => {
-        const newElement = document.createElement("li");
-        newElement.innerText = element.nome;
-        listaElement.append(newElement)
-
-    })
+    }
 
 })
 
+console.log(nuovoArray);
